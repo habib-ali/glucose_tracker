@@ -15,7 +15,7 @@ class BloodGulcoseReadingsController < ApplicationController
 
   # GET /blood_gulcose_readings/new
   def new
-    @blood_gulcose_reading = BloodGulcoseReading.new
+    @blood_gulcose_reading = BloodGulcoseReading.new(date: Date.today)
   end
 
   # GET /blood_gulcose_readings/1/edit
@@ -25,7 +25,8 @@ class BloodGulcoseReadingsController < ApplicationController
   # POST /blood_gulcose_readings
   # POST /blood_gulcose_readings.json
   def create
-    @blood_gulcose_reading = BloodGulcoseReading.new(blood_gulcose_reading_params)
+    @blood_gulcose_reading = current_user.blood_gulcose_readings.new(blood_gulcose_reading_params)
+    @blood_gulcose_reading.date = Date.today
 
     respond_to do |format|
       if @blood_gulcose_reading.save

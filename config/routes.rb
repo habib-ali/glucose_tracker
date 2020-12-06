@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # devise_for :users
   resources :blood_gulcose_readings
-  root to: 'users#index'
+  root to: 'blood_gulcose_readings#index'
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',

@@ -3,16 +3,15 @@
     #error_explanation
       %h2
         = pluralize(blood_gulcose_reading.errors.count, "error")
-        prohibited this blood_gulcose_reading from being saved:
+        prohibited this eading from being saved:
       %ul
         - blood_gulcose_reading.errors.full_messages.each do |message|
           %li= message
   .field
-    = form.label :user_id
-    = form.select :user_id, options_from_collection_for_select(User.first(100), :id, :first_name)
+    = form.label :date, form.object.date.strftime("%d/%m/%Y")
   .field
     = form.label :value
-    = form.number_field :value
+    = form.number_field :value, min: -9, max: 9
   .field
     = form.label :reading_type
     = form.select :reading_type, options_for_select( BloodGulcoseReading.reading_types.keys, :selected => form.object.reading_type ), :class=>"form-control"
