@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @blood_gulcose_reading.user_id %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @blood_gulcose_reading.value %>
+</p>
+
+<p>
+  <strong>Reading type:</strong>
+  <%= @blood_gulcose_reading.reading_type %>
+</p>
+
+<%= link_to 'Edit', edit_blood_gulcose_reading_path(@blood_gulcose_reading) %> |
+<%= link_to 'Back', blood_gulcose_readings_path %>
