@@ -1,0 +1,20 @@
+%p#notice= notice
+%h1 Blood Gulcose Readings
+%table
+  %thead
+    %tr
+      %th User
+      %th Value
+      %th Reading type
+      %th{:colspan => "3"}
+  %tbody
+    - @blood_gulcose_readings.each do |blood_gulcose_reading|
+      %tr
+        %td= blood_gulcose_reading.user_name
+        %td= blood_gulcose_reading.value
+        %td= blood_gulcose_reading.reading_type
+        %td= link_to 'Show', blood_gulcose_reading
+        %td= link_to 'Edit', edit_blood_gulcose_reading_path(blood_gulcose_reading)
+        %td= link_to 'Destroy', blood_gulcose_reading, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Blood Gulcose Reading', new_blood_gulcose_reading_path

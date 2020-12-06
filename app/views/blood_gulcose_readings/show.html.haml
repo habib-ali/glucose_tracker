@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong User:
+  = @blood_gulcose_reading.user_id
+%p
+  %strong Value:
+  = @blood_gulcose_reading.value
+%p
+  %strong Reading type:
+  = @blood_gulcose_reading.reading_type
+= link_to 'Edit', edit_blood_gulcose_reading_path(@blood_gulcose_reading)
+|
+= link_to 'Back', blood_gulcose_readings_path
