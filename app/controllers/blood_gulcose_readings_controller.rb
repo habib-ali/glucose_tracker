@@ -1,6 +1,6 @@
 class BloodGulcoseReadingsController < ApplicationController
   before_action :authenticate_user!
-  protect_from_forgery prepend: true
+  # protect_from_forgery prepend: true
   before_action :set_blood_gulcose_reading, only: [:show, :edit, :update, :destroy]
   # GET /blood_gulcose_readings
   # GET /blood_gulcose_readings.json
