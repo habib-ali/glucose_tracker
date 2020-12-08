@@ -5,7 +5,7 @@ class BloodGulcoseReadingsController < ApplicationController
   # GET /blood_gulcose_readings
   # GET /blood_gulcose_readings.json
   def index
-    @blood_gulcose_readings = BloodGulcoseReading.all
+    @blood_gulcose_readings = current_user.blood_gulcose_readings.page(params[:page]).per(50)
   end
 
   # GET /blood_gulcose_readings/1
