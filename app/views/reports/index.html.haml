@@ -1,0 +1,48 @@
+/ Nav tabs
+%ul#myTab.nav.nav-tabs{:role => "tablist"}
+  %li.nav-item
+    %a#home-tab.nav-link.active{"aria-controls" => "home", "aria-selected" => "true", "data-toggle" => "tab", :href => "#daily", :role => "tab"} Daily
+  %li.nav-item
+    %a#profile-tab.nav-link{"aria-controls" => "profile", "aria-selected" => "false", "data-toggle" => "tab", :href => "#monthly", :role => "tab"} Monthly
+  %li.nav-item
+    %a#messages-tab.nav-link{"aria-controls" => "messages", "aria-selected" => "false", "data-toggle" => "tab", :href => "#monthwise", :role => "tab"} Monthwise
+/ Tab panes
+.tab-content
+  #daily.tab-pane.active{"aria-labelledby" => "home-tab", :role => "tabpanel"}
+    = form_with url: daily_reports_path, :method => :get, :role => "form", :remote => true, :html => { :class => "searchFormSeoMetaInfo"} do |f|
+      .form-inputs
+        %br
+        .row
+          .col-lg-3
+            %label Daily Report End Date
+            %input#mydate{:max => Date.today, :min => "2020-01-01", :name => "end_date", :type => "date", :value => Date.today, class: "form-control input-width"}/
+          .col-lg-1
+            .form-actions.pad-top-2
+              = f.submit "Generate Report", :class=> "btn btn-primary br-5 pull-right"
+    #render_daily_reports_data
+  #monthly.tab-pane{"aria-labelledby" => "profile-tab", :role => "tabpanel"}
+    = form_with url: monthly_reports_path, :method => :get, :role => "form", :remote => true, :html => { :class => "searchFormSeoMetaInfo"} do |f|
+      .form-inputs
+        %br
+        .row
+          .col-lg-3
+            %label Monthly Report End Date
+            %input#mydate{:max => Date.today, :min => "2020-01-01", :name => "end_date", :type => "date", :value => Date.today, class: "form-control input-width"}/
+          .col-lg-1
+            .form-actions.pad-top-2
+              = f.submit "Generate Report", :class=> "btn btn-primary br-5 pull-right"
+    #render_monthly_reports_data
+  #monthwise.tab-pane{"aria-labelledby" => "messages-tab", :role => "tabpanel"}
+    = form_with url: monthwise_reports_path, :method => :get, :role => "form", :remote => true, :html => { :class => "searchFormSeoMetaInfo"} do |f|
+      .form-inputs
+        %br
+        .row
+          .col-lg-3
+            %label Monthwise Report End Date
+            %input#mydate{:max => Date.today, :min => "2020-01-01", :name => "end_date", :type => "date", :value => Date.today, class: "form-control input-width"}/
+          .col-lg-1
+            .form-actions.pad-top-2
+              = f.submit "Generate Report", :class=> "btn btn-primary br-5 pull-right"
+    #render_monthwise_reports_data
+
+  

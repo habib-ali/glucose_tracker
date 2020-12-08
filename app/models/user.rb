@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  has_many :blood_gulcose_readings
+  has_many :blood_gulcose_readings, dependent: :destroy
   
   def name
     first_name.to_s + " " + last_name.to_s

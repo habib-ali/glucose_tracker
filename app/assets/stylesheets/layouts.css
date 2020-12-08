@@ -3,3 +3,6 @@
   padding: 20px !important;
   min-height: 280px;
 }
+.no-padding{
+  padding: 0px;
+}

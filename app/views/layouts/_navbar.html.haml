@@ -4,14 +4,14 @@
     %span.navbar-toggler-icon
   #navbarText.collapse.navbar-collapse
     %ul.navbar-nav.mr-auto
-      %li.nav-item{ class: active_tab?(users_path)}
+      %li.nav-item{ class: active_tab?(users_path, edit_user_registration_path, new_user_registration_path)}
         %a.nav-link{:href => users_path}
           Users
           %span.sr-only (current)
-      %li.nav-item{ class: active_tab?(blood_gulcose_readings_path)}
+      %li.nav-item{ class: active_tab?(blood_gulcose_readings_path, root_path)}
         %a.nav-link{:href => blood_gulcose_readings_path} Glucose Readings
-      %li.nav-item{ class: active_tab?('#')}
-        %a.nav-link{:href => "#"} Reports
+      %li.nav-item{ class: active_tab?(reports_path) }
+        %a.nav-link{:href => reports_path} Reports
     - if user_signed_in?
       %span.nav-item.dropdown
         %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#"}

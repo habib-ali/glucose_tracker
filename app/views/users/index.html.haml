@@ -1,4 +1,9 @@
-%h1 Users
+.row
+  .col-lg-6
+    %h1 Users
+  .col-lg-2.offset-4
+    = link_to 'New User', new_user_registration_path, class: "btn btn-primary pull-right"
+%br/
 %table.table.table-hover-effect
   %thead
     %tr
@@ -12,8 +17,6 @@
         %td= user.first_name
         %td= user.last_name
         %td= user.email
-        %td= link_to 'Show', user
+        -# %td= link_to 'Show', user
         -# %td= link_to 'Edit', edit_user_path(user)
         %td= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'New User', new_user_registration_path

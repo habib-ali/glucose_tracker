@@ -1,4 +1,9 @@
-%h1 Blood Gulcose Readings
+.row
+  .col-lg-6
+    %h1 Blood Glucose Readings
+  .col-lg-2.offset-4
+    = link_to 'New Reading', new_blood_gulcose_reading_path, remote: true, class: "btn btn-primary pull-right"
+%br/
 %table.table.table-hover-effect
   %thead
     %tr
@@ -16,7 +21,6 @@
         %td= blood_gulcose_reading.reading_type
         %td= blood_gulcose_reading.try(:date).try(:strftime, date_format_string)
         %td= link_to 'Show', blood_gulcose_reading
-        %td= link_to 'Edit', edit_blood_gulcose_reading_path(blood_gulcose_reading)
+        -# %td= link_to 'Edit', edit_blood_gulcose_reading_path(blood_gulcose_reading), remote: true
         %td= link_to 'Destroy', blood_gulcose_reading, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'New Blood Gulcose Reading', new_blood_gulcose_reading_path
+#readings_form

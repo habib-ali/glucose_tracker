@@ -1,0 +1,2 @@
+$('#readings_form').html("#{escape_javascript( render :partial => 'form_modal', locals: { blood_gulcose_reading: @blood_gulcose_reading}  )}");
+$('#glucode_readings_modal').modal("show");

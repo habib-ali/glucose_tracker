@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
+  resources :reports, only: [:index] do
+    collection do
+      get 'daily'
+      get 'monthly'
+      get 'monthwise'
+    end
+  end
   # devise_for :users
-  resources :blood_gulcose_readings
+  resources :blood_gulcose_readings, path: 'glucose-readings'
   root to: 'blood_gulcose_readings#index'
 
   devise_for :users, controllers: {

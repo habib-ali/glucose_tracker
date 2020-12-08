@@ -30,10 +30,10 @@ class BloodGulcoseReadingsController < ApplicationController
 
     respond_to do |format|
       if @blood_gulcose_reading.save
-        format.html { redirect_to @blood_gulcose_reading, notice: 'Blood gulcose reading was successfully created.' }
+        format.html { redirect_to blood_gulcose_readings_path, notice: 'Blood gulcose reading was successfully created.' }
         format.json { render :show, status: :created, location: @blood_gulcose_reading }
       else
-        format.html { render :new }
+        format.html { redirect_to blood_gulcose_readings_path, notice: 'Unable to record Blood gulcose reading. ' + @blood_gulcose_reading.errors.full_messages.first  }
         format.json { render json: @blood_gulcose_reading.errors, status: :unprocessable_entity }
       end
     end
@@ -47,7 +47,7 @@ class BloodGulcoseReadingsController < ApplicationController
         format.html { redirect_to @blood_gulcose_reading, notice: 'Blood gulcose reading was successfully updated.' }
         format.json { render :show, status: :ok, location: @blood_gulcose_reading }
       else
-        format.html { render :edit }
+        format.html { redirect_to blood_gulcose_readings_path, notice: 'Unable to record Blood gulcose reading. ' + @blood_gulcose_reading.errors.full_messages.first  }
         format.json { render json: @blood_gulcose_reading.errors, status: :unprocessable_entity }
       end
     end

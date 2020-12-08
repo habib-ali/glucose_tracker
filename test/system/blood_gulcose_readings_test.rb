@@ -7,7 +7,7 @@ class BloodGulcoseReadingsTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit blood_gulcose_readings_url
-    assert_selector "h1", text: "Blood Gulcose Readings"
+    assert_selector "h1", text: "Blood Glucose Readings"
   end
 
   test "creating a Blood gulcose reading" do

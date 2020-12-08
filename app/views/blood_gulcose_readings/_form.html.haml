@@ -3,17 +3,19 @@
     #error_explanation
       %h2
         = pluralize(blood_gulcose_reading.errors.count, "error")
-        prohibited this eading from being saved:
+        prohibited this reading from being saved:
       %ul
         - blood_gulcose_reading.errors.full_messages.each do |message|
           %li= message
-  .field
-    = form.label :date, form.object.date.strftime(date_format_string)
-  .field
-    = form.label :value
-    = form.number_field :value, min: -9, max: 9
-  .field
-    = form.label :reading_type
-    = form.select :reading_type, options_for_select( BloodGulcoseReading.reading_types.keys, :selected => form.object.reading_type ), :class=>"form-control"
-  .actions
-    = form.submit
+  .row
+    .col-lg-4.offset-8
+      = form.label :date, form.object.date.strftime(date_format_string)
+  .row
+    .col-lg-4
+      = form.label :value, "Reading"
+      = form.number_field :value, min: -9, max: 9, class: '', class: "value-field form-control pad-top-2"
+    .col-lg-3.no-padding.pad-top-2
+      -# = form.label :reading_type
+      = form.select :reading_type, options_for_select( BloodGulcoseReading.reading_types.keys, :selected => form.object.reading_type ),{}, :class=>"form-control"
+    .col-lg-2.offset-2.pad-top-2
+      = form.submit :Save, class: 'btn btn-primary'
