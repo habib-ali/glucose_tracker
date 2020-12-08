@@ -15,7 +15,6 @@
       = form.label :value, "Reading"
       = form.number_field :value, min: -9, max: 9, class: '', class: "value-field form-control pad-top-2"
     .col-lg-3.no-padding.pad-top-2
-      -# = form.label :reading_type
       = form.select :reading_type, options_for_select( BloodGulcoseReading.reading_types.keys, :selected => form.object.reading_type ),{}, :class=>"form-control"
     .col-lg-2.offset-2.pad-top-2
       = form.submit :Save, class: 'btn btn-primary'
