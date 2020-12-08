@@ -1,0 +1,24 @@
+%nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  %a.navbar-brand{:href => root_path} Blood Glucose Tracker
+  %button.navbar-toggler{"aria-controls" => "navbarText", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarText", "data-toggle" => "collapse", :type => "button"}
+    %span.navbar-toggler-icon
+  #navbarText.collapse.navbar-collapse
+    %ul.navbar-nav.mr-auto
+      %li.nav-item{ class: active_tab?(users_path)}
+        %a.nav-link{:href => users_path}
+          Users
+          %span.sr-only (current)
+      %li.nav-item{ class: active_tab?(blood_gulcose_readings_path)}
+        %a.nav-link{:href => blood_gulcose_readings_path} Glucose Readings
+      %li.nav-item{ class: active_tab?('#')}
+        %a.nav-link{:href => "#"} Reports
+    - if user_signed_in?
+      %span.nav-item.dropdown
+        %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#"}
+          = current_user.try(:email)
+          .dropdown-menu{"aria-labelledby" => "navbarDropdownMenuLink"}
+            %a.dropdown-item{:href => destroy_user_session_path,  "data-method" => 'delete'} signout
+    - else
+      = link_to 'sign in', new_user_session_path
+
+          

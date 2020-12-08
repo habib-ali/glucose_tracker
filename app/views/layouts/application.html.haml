@@ -9,15 +9,12 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    %p.notice= notice
-    %p.alert= alert
-    - if user_signed_in?
-      %p
-        = current_user.email
-      -# = link_to 'sign out', destroy_user_session_path
-      
-      -# = link_to content_tag('span', t('admin.misc.log_out'), class: 'label label-danger'), destroy_user_session_path(), method: 'DELETE'
-      = link_to('Sign out',  destroy_user_session_path, :method => 'delete', class: 'btn btn-danger m-5')
-    - else
-      = link_to 'sign in', new_user_session_path
-    = yield
+    = render 'layouts/navbar'
+
+    .page-content-wrapper
+      .page-content
+        .errors__container
+          .col-8.offset-2.col-sm-6.offset-sm-3
+            %span.notice= notice
+            %span.alert= alert
+        = yield

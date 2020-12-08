@@ -1,19 +1,20 @@
-%p#notice= notice
-
 %h1 Blood Gulcose Readings
-%table
+%table.table.table-hover-effect
   %thead
     %tr
       %th User
       %th Value
       %th Reading type
+      %th Date
       %th{:colspan => "3"}
+        Actions
   %tbody
     - @blood_gulcose_readings.each do |blood_gulcose_reading|
       %tr
         %td= blood_gulcose_reading.user_name
         %td= blood_gulcose_reading.value
         %td= blood_gulcose_reading.reading_type
+        %td= blood_gulcose_reading.try(:date).try(:strftime, date_format_string)
         %td= link_to 'Show', blood_gulcose_reading
         %td= link_to 'Edit', edit_blood_gulcose_reading_path(blood_gulcose_reading)
         %td= link_to 'Destroy', blood_gulcose_reading, method: :delete, data: { confirm: 'Are you sure?' }
