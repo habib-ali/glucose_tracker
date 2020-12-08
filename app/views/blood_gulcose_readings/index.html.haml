@@ -21,7 +21,7 @@
         %td= blood_gulcose_reading.reading_type
         %td= blood_gulcose_reading.try(:date).try(:strftime, date_format_string)
         %td= link_to 'Show', blood_gulcose_reading
-        -# %td= link_to 'Edit', edit_blood_gulcose_reading_path(blood_gulcose_reading), remote: true
+        %td= link_to 'Edit', edit_blood_gulcose_reading_path(blood_gulcose_reading), remote: true
         %td= link_to 'Destroy', blood_gulcose_reading, method: :delete, data: { confirm: 'Are you sure?' }
 .clearfix
 = paginate @blood_gulcose_readings

@@ -7,7 +7,7 @@ class BloodGulcoseReading < ApplicationRecord
   validate :per_user_quota
   
   def per_user_quota
-    self.errors.add(:user, " have reached his maximum blood glucose reading limit") if ( self.user.blood_gulcose_readings.where("date = ?", self.date).count >= 4 )
+    self.errors.add(:user, " have reached his maximum blood glucose reading limit") if ( self.user.blood_gulcose_readings.where.not(id: self.id).where("date = ?", self.date).count >= 4 )
   end
 
 end

@@ -8,6 +8,7 @@
 %p
   %strong Reading type:
   = @blood_gulcose_reading.reading_type
-= link_to 'Edit', edit_blood_gulcose_reading_path(@blood_gulcose_reading)
+= link_to 'Edit', edit_blood_gulcose_reading_path(@blood_gulcose_reading), remote: true
 |
 = link_to 'Back', blood_gulcose_readings_path
+#readings_form
