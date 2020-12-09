@@ -43,7 +43,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # protected
   def sign_up(resource_name, resource)
-    # sign_in(resource_name, resource)
+    sign_in(resource_name, resource) unless user_signed_in?
   end
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params

@@ -16,9 +16,7 @@
       %span.nav-item.dropdown
         %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#"}
           = current_user.try(:email)
-          .dropdown-menu{"aria-labelledby" => "navbarDropdownMenuLink"}
-            %a.dropdown-item{:href => destroy_user_session_path,  "data-method" => 'delete'} signout
+        .dropdown-menu{"aria-labelledby" => "navbarDropdownMenuLink"}
+          %a.dropdown-item{:href => destroy_user_session_path,  "data-method" => 'delete'} signout
     - else
       = link_to 'sign in', new_user_session_path
-
-          
