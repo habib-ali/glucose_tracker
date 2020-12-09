@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_06_085602) do
+ActiveRecord::Schema.define(version: 2020_12_06_160140) do
 
   create_table "blood_gulcose_readings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_12_06_085602) do
     t.integer "reading_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.date "date"
     t.index ["user_id"], name: "index_blood_gulcose_readings_on_user_id"
   end
 
