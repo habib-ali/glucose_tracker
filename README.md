@@ -1,24 +1,27 @@
-# README
+# Glucose Tracker App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Blood glucose tracker is a simple web application which enables a user to input and track blood glucose readings and view reports on those readings.
 
-Things you may want to cover:
+The typical user of the blood glucose tracker application is a diabetes patient who is checking his or her blood glucose levels several times a day. These individuals are looking for a method to keep track of their readings on a daily basis and examine monthly trends.
 
-* Ruby version
+*Tech Specs:*
 
-* System dependencies
+It use Ruby 2.7.2 and Rails 6.0.3
 
-* Configuration
+To get started:
 
-* Database creation
+Clone the repository using 
 
-* Database initialization
+`git clone git@github.com:habib-ali/glucose_tracker.git`
 
-* How to run the test suite
+Create new database
+`rake db:create`
 
-* Services (job queues, cache servers, search engines, etc.)
+Run all migrations
+`rake db:migrate`
 
-* Deployment instructions
+Polpulate with seed data
+`rake db:seed`
 
-* ...
+Run the tests using Rspec
+`rspec`
